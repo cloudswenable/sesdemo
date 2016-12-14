@@ -7,7 +7,6 @@ from django import forms
 import numpy as np
 import caffehelper
 import bkmeanshelper
-import caffe
 from django.core.files.storage import default_storage
 import sesdemo.settings
 
@@ -33,7 +32,7 @@ def upload(request):
             for chunk in fname.chunks():
                 destination.write(chunk)
 
-        inputs = [caffe.io.load_image(predict_dir+ predict_fname)]
+        inputs = caffehelper.load_image(predict_dir+ predict_fname)
         result = caffehelper.classifier.predict(inputs, not center_only)
         print result
         binary_code = caffehelper.to_binary_int64s(result[0])

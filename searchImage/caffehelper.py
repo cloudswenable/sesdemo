@@ -1,8 +1,14 @@
+
+import os, sys
+import sesdemo.settings
+
+caffe_dir = sesdemo.settings.CAFFE_PATH
+sys.path.append(caffe_dir)
 import caffe
 
-prefix = "/home/jimmy/deploy/"
+prefix = sesdemo.settings.CAFFE_MODEL_PATH
 model_def = prefix + "deploy.prototxt"
-weights = prefix + "SSDH256_iter_50000.caffemodel"
+weights = prefix + "deploy.caffemodel"
 
 image_dims = [227,227]
 input_scale = None
@@ -14,6 +20,9 @@ classifier = caffe.Classifier(model_file=model_def,
                               input_scale=input_scale,
                               raw_scale=raw_scale,
                               channel_swap=channel_swap)
+
+def load_image(input_path):
+    return [caffe.io.load_image(input_path)]
 
 def to_binary(inputs):
     t_str=''

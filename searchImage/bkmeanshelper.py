@@ -1,13 +1,13 @@
 import ctypes
 
+import sesdemo.settings
 
-
-libbkmeans_path = "/home/jimmy/bkmeans"
+libbkmeans_path = sesdemo.settings.BKMEANS_PATH
 
 
 so = ctypes.CDLL(libbkmeans_path + "/libbkmeans.so")
 
-so.bkmLoadData(libbkmeans_path+"/cifar_bcode_int64s.txt", 256)
+so.bkmLoadData(libbkmeans_path+"/bcode_int64s.txt", 256)
 so.bkmLoadModel(libbkmeans_path+"/model")
 #so.bkmNearestCenter(0)
 #data = ctypes.ARRAY(ctypes.c_int, 50)()
