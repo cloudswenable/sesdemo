@@ -21,8 +21,14 @@ image_path = [i[0]  for i in image_list]
 image_label = [i[1] for i in image_list]
 
 print len(image_list)
-image_path_dict = zip(image_path)
-image_label_dict = zip(image_label)
+#image_path_dict = zip(image_path)
+image_path_dict = {}
+for i in range(len(image_path)):
+    image_path_dict[i] = image_path[i]
+#image_label_dict = zip(image_label)
+image_label_dict = {}
+for i in range(len(image_label)):
+    image_label_dict[i] = image_label[i]
 
 def dump(arrays):
     for i in range(len(arrays)):
@@ -33,6 +39,5 @@ def findKNN(bcode_int64s):
     codearray = ctypes.c_ulonglong * 4
     bcodes = codearray(bcode_int64s[0], bcode_int64s[1], bcode_int64s[2], bcode_int64s[3])
     so.bkmKNeighbors(resultIDs, K, bcodes)
-    dump(resultIDs)
-    print len(resultIDs)
-    return resultIDs
+    #dump(resultIDs)
+    return resultIDs, [image_path_dict[resultIDs[i]] for i in range(len(resultIDs))],[image_label_dict[resultIDs[i]] for i in range(len(resultIDs))]

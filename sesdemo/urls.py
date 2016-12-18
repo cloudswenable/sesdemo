@@ -21,4 +21,6 @@ urlpatterns = [
     url(r'^upload/', cmviews.upload),
     url(r'^search/', cmviews.upload),
     url(r'^admin/', admin.site.urls),
+    url(r'^index/', cmviews.homepage),
+    url(r'^upload_search/', cmviews.upload_search),
 ]

@@ -1,0 +1,21 @@
+{% extends "header.html" %}
+
+{% block content %}
+    <form enctype="multipart/form-data" method="post" action="/upload_search/">
+        <form>
+            <fieldset>
+                <legend>upload file for search</legend>
+                <input type="file" name="files">
+                <input type="submit" value="search">
+            </fieldset>
+        </form>
+    </form>
+
+
+    {% if result %}
+        {% for item in result %}
+            {{ item }}
+        {% endfor %}
+    {% endif %}
+{% endblock %}
+
