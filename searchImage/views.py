@@ -17,6 +17,7 @@ tmp_dir = "tmp/"
 predict_dir = os.path.join(sesdemo.settings.BASE_DIR,tmp_dir)
 
 predict_fname = ""
+root_path = "/images/"
 
 
 def homepage(request):
@@ -34,9 +35,11 @@ def upload_search(request):
         binary_code = caffehelper.to_binary_int64s(result[0])
         result_ids, result_paths, result_labels = bkmeanshelper.findKNN(binary_code)
 
-        return render_to_response('index.html',{'result': result_paths})
+        #return render_to_response('index.html',{'result': result_paths})
+        result_paths = [ root_path+p for p in result_paths]
+        return render_to_response('result.html',{'result': result_paths })
     else:
-        print "no file"
+        #print "no file"
         return render_to_response('index.html', {'result': "Faild"})
 
 def upload(request):

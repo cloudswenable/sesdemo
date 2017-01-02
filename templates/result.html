@@ -1,0 +1,12 @@
+{% extends 'index.html' %}
+
+{% block resultlist%}
+{% if result %}
+        {% for item in result %}
+            <p>
+                {{ item }}
+                <img src="{{ item }}" width="128" height="128">
+            </p>
+        {% endfor %}
+{% endif %}
+{% endblock %}
