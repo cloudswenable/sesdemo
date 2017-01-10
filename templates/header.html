@@ -22,29 +22,24 @@
             $(this).tab('show');
         })
     </script>
-    <script>
-        var $grid = $('.grid').imagesLoaded( function() {
-  $grid.masonry({
-    itemSelector: '.grid-item',
-    percentPosition: true,
-    columnWidth: '.grid-sizer'
-  });
-});
-
-    </script>
+    <script></script>
     <style>
-    .item {
-        float: left;
-        margin: 10px;
-        width: 220px;
-    }
+        .jumbotron{
+            background-image: url("{% static 'images/logo.jpg' %}");
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
     </style>
 
 </head>
 <body>
 <div class="container">
     <div class="jumbotron" align="center">
-        <h1>Image Search Demo</h1>
+        <h1>
+            <div class="div_color">
+                Image Search Demo
+            </div>
+        </h1>
     </div>
 </div>
 

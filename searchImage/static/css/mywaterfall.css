@@ -35,3 +35,7 @@ body { font-family: sans-serif; }
   display: block;
   width: 100%;
 }
+
+.div_color {
+  color: #337ab7;
+}

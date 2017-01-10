@@ -17,7 +17,9 @@ from django.conf.urls import url
 from django.contrib import admin
 from searchImage import views as cmviews
 from django.views.static import serve
+import settings
 
+uploaded_dir = settings.UPLOADED_PATH
 
 urlpatterns = [
     url(r'^upload/', cmviews.upload),
@@ -26,4 +28,5 @@ urlpatterns = [
     url(r'^index/', cmviews.homepage),
     url(r'^upload_search/', cmviews.upload_search),
     url(r'^images/(?P<path>.*)', serve, {'document_root': '/home/jimmy/bkmeans_imagenet'}),
+    url(r'^uploaded/(?P<path>.*)', serve, {'document_root': uploaded_dir}),
 ]

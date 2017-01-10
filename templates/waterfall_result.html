@@ -5,6 +5,35 @@
 
 {% block resultlist%}
     {% if result %}
+        <div class="container">
+            <p>
+                <h1 align="center">
+                    <div class="div_color">
+                        Original Image
+                    </div>
+                </h1>
+            </p>
+            <p align="center">
+                <img src="{{ original }}" >
+            </p>
+            <p >
+                <h5>
+                    <div class="div_color" align="center">
+                     Binary Codes: {{ features }}
+                    </div>
+                </h5>
+
+            </p>
+        </div>
+        <div class="container">
+            <p>
+                <h1 align="center">
+                    <div class="div_color">
+                        Search Result
+                    </div>
+                </h1>
+            </p>
+        </div>
         <div class="grid">
          <div class="grid-sizer"></div>
                 {% for item in result %}

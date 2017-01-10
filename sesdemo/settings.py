@@ -124,3 +124,4 @@ STATIC_URL = '/static/'
 BKMEANS_PATH = '/home/jimmy/bkmeans_imagenet/'
 CAFFE_PATH = "/home/jimmy/distribute/python/"
 CAFFE_MODEL_PATH = "/home/jimmy/deploy_imagenet/"
+UPLOADED_PATH = "/home/jimmy/Development/ses/sesdemo/"

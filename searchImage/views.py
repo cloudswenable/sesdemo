@@ -13,7 +13,8 @@ import sesdemo.settings
 
 
 center_only = False
-tmp_dir = "tmp/"
+#tmp_dir = "tmp/"
+tmp_dir = sesdemo.settings.UPLOADED_PATH
 predict_dir = os.path.join(sesdemo.settings.BASE_DIR,tmp_dir)
 
 predict_fname = ""
@@ -37,7 +38,8 @@ def upload_search(request):
 
         #return render_to_response('index.html',{'result': result_paths})
         result_paths = [ root_path+p for p in result_paths]
-        return render_to_response('waterfall_result.html',{'result': result_paths })
+        uploaded_image = "/uploaded/"+ fname.name
+        return render_to_response('waterfall_result.html',{'original' : uploaded_image, 'features': binary_code,'result': result_paths })
         #return render_to_response('result.html',{'result': result_paths })
     else:
         #print "no file"
