@@ -37,7 +37,8 @@ def upload_search(request):
 
         #return render_to_response('index.html',{'result': result_paths})
         result_paths = [ root_path+p for p in result_paths]
-        return render_to_response('result.html',{'result': result_paths })
+        return render_to_response('waterfall_result.html',{'result': result_paths })
+        #return render_to_response('result.html',{'result': result_paths })
     else:
         #print "no file"
         return render_to_response('index.html', {'result': "Faild"})
